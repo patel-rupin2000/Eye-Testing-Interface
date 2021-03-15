@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "eye-testing",
-    "slug": "eye-testing",
+    "name": "eye",
+    "slug": "eye",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

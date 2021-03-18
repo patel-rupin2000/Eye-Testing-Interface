@@ -9,12 +9,11 @@ import StartScreen from './start';
 import React ,{ useState, useEffect, useRef,useCallback, } from "react";
 import {Provider} from 'react-redux';
 import ApiKeys from './constants';
+import smtk from './src/Screens/stack';
 import { View, Image, Alert, Button, StyleSheet, Text ,ImageBackground,TouchableHighlight} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-
-
-import HomeScreen from "./src/Screens/home";
-
+import MapScreen from './src/Screens/map'
+import SearchScreen from './src/Screens/search'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 var firebase = require("firebase");
@@ -32,6 +31,7 @@ import {
 import { Store } from './redux/app-redux';
 
 import AuthScreen from './auth';
+import Search from "./src/Screens/search";
 //import User from './navigate';
 
 
@@ -46,20 +46,6 @@ import AuthScreen from './auth';
 function RootNavigator(props,{navigation})
 
 {
-  
-      
-      
-
-
-      
-
-  
-  
-  
-  
-  
-  
-
 
 
   const Drawers = createDrawerNavigator();
@@ -117,6 +103,15 @@ function RootNavigator(props,{navigation})
                 props.navigation.navigate("Home");
               }}
             />
+                        <DrawerItem
+              label="Map"
+              labelStyle={{color:"white",fontWeight:"bold",fontSize:18}}
+              onPress={() => {
+                props.navigation.navigate("Map");
+              }}
+            />
+        
+
 
 
           </Drawer.Section>
@@ -140,11 +135,6 @@ function RootNavigator(props,{navigation})
     
   }
 
-  
-  
-  
-
-  
 
 
   return (
@@ -154,12 +144,9 @@ function RootNavigator(props,{navigation})
       <Drawers.Navigator drawerContent={props => <DrawerContent {...props} />} backBehavior={false}   >
         <Drawers.Screen name="Start" component={StartScreen} />
         <Drawers.Screen name="Auth" component={AuthScreen} />
-        <Drawers.Screen name="Home" component={HomeScreen} />
-
-        
-        
-        
-        
+        <Drawers.Screen name="Home" component={smtk} />
+        <Drawers.Screen name="Map" component={MapScreen} />
+        {/* <Drawers.Screen name="Search" component={SearchScreen} /> */}
         
         
       </Drawers.Navigator>
